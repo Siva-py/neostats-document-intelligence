@@ -19,3 +19,5 @@ GEMINI_API_KEYS = [
     ]
     if key
 ]
+
+DATABASE_URL = os.getenv("DATABASE_URL")

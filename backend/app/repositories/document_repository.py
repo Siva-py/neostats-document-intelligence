@@ -26,7 +26,7 @@ class DocumentRepository:
                 ensure_ascii=False,
             )
 
-            connection.execute(
+            connection.cursor().execute(
                 """
                 INSERT INTO documents (
                     document_name,
@@ -35,14 +35,13 @@ class DocumentRepository:
                     result_json,
                     created_at
                 )
-                VALUES (?, ?, ?, ?, ?)
-
+                VALUES (%s, %s, %s, %s, %s)
                 ON CONFLICT(document_name)
                 DO UPDATE SET
-                    document_type = excluded.document_type,
-                    status = excluded.status,
-                    result_json = excluded.result_json,
-                    created_at = excluded.created_at
+                    document_type = EXCLUDED.document_type,
+                    status = EXCLUDED.status,
+                    result_json = EXCLUDED.result_json,
+                    created_at = EXCLUDED.created_at
                 """,
                 (
                     document_name,
@@ -65,14 +64,23 @@ class DocumentRepository:
         connection = get_connection()
 
         try:
-            row = connection.execute(
+            cursor = connection.cursor()
+            cursor.execute(
                 """
-                SELECT *
+                SELECT
+                    id,
+                    document_name,
+                    document_type,
+                    status,
+                    result_json,
+                    created_at
                 FROM documents
-                WHERE document_name = ?
+                WHERE document_name = %s
                 """,
                 (document_name,),
-            ).fetchone()
+            )
+
+            row = cursor.fetchone()
 
             if row is None:
                 return None
@@ -86,7 +94,8 @@ class DocumentRepository:
         connection = get_connection()
 
         try:
-            rows = connection.execute(
+            cursor = connection.cursor()
+            cursor.execute(
                 """
                 SELECT
                     id,
@@ -97,10 +106,18 @@ class DocumentRepository:
                 FROM documents
                 ORDER BY created_at DESC
                 """
-            ).fetchall()
+            )
+
+            rows = cursor.fetchall()
 
             return [
-                dict(row)
+                {
+                    "id": row[0],
+                    "document_name": row[1],
+                    "document_type": row[2],
+                    "status": row[3],
+                    "created_at": row[4],
+                }
                 for row in rows
             ]
 
@@ -108,7 +125,14 @@ class DocumentRepository:
             connection.close()
 
     def _row_to_dict(self, row):
-        result = dict(row)
+        result = {
+            "id": row[0],
+            "document_name": row[1],
+            "document_type": row[2],
+            "status": row[3],
+            "result_json": row[4],
+            "created_at": row[5],
+        }
 
         result["result"] = json.loads(
             result.pop("result_json")
