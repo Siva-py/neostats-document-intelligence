@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NeoStats | Document Intelligence</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         SIDEBAR
+         ========================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                N
+            </div>
+
+            <div>
+                <div class="brand-name">NeoStats</div>
+                <div class="brand-subtitle">Document Intelligence</div>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="#" class="nav-item active">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">＋</span>
+                <span>Process Document</span>
+            </a>
+
+
+            <div class="nav-section-title">
+                DOCUMENTS
+            </div>
+
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>All Documents</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-api">
+
+                <span id="status-dot" class="status-dot"></span>
+
+                <span id="status-text">
+                    Checking API...
+                </span>
+
+            </div>
+
+            <div class="version">
+                v1.0.0
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+         ========================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                
+
+                <h1>
+                    Document <span>Intelligence</span>
+                </h1>
+
+                <p class="topbar-description">
+                    Turn your financial documents into structured data with AI.
+                </p>
+
+            </div>
+
+
+            
+
+        </header>
+
+
+        <div class="page-content">
+
+
+            <!-- =========================
+                 HERO
+                 ========================= -->
+
+            <section class="hero-banner">
+
+                <div class="hero-content">
+
+                    <h2>
+                        Financial Document
+                        <span>Processing</span>
+                    </h2>
+
+                    <p>
+                        Upload a financial document and extract structured
+                        information with automated validation.
+                    </p>
+
+
+                    <div class="document-types">
+
+                        <div class="document-type-item">
+                            <span class="type-icon">▤</span>
+                            Invoices
+                        </div>
+
+                        <div class="document-type-item">
+                            <span class="type-icon">▥</span>
+                            Balance Sheets
+                        </div>
+
+                        <div class="document-type-item">
+                            <span class="type-icon">⌁</span>
+                            Profit &amp; Loss
+                        </div>
+
+                        <div class="document-type-item">
+                            <span class="type-icon">◔</span>
+                            Cash Flow Statements
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="document-illustration">
+
+                        <div class="document-line"></div>
+                        <div class="document-line short"></div>
+                        <div class="document-line"></div>
+                        <div class="document-line medium"></div>
+
+                    </div>
+
+
+                    <div class="hero-insight">
+
+                        <div>Extract</div>
+                        <div>Validate</div>
+                        <div>Analyze</div>
+                        <div>Gain Insights</div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 PROCESS DOCUMENT
+                 ========================= -->
+
+            <section class="card process-card">
+
+                <div class="card-title">
+
+                    <h2>
+                        Process Document
+                    </h2>
+
+                    <p>
+                        Select the document type and upload a PDF or image.
+                    </p>
+
+                </div>
+
+
+                <div class="process-layout">
+
+
+                    <!-- LEFT SIDE -->
+
+                    <div class="process-controls">
+
+                        <div class="form-group">
+
+                            <label for="document-type">
+                                Document Type
+                            </label>
+
+                            <select id="document-type">
+
+                                <option value="invoice">
+                                    Invoice
+                                </option>
+
+                                <option value="balance_sheet">
+                                    Balance Sheet
+                                </option>
+
+                                <option value="profit_and_loss">
+                                    Profit &amp; Loss
+                                </option>
+
+                                <option value="cash_flow_statement">
+                                    Cash Flow Statement
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="file-input">
+                                Select Document
+                            </label>
+
+                            <input
+                                type="file"
+                                id="file-input"
+                                accept=".pdf,.jpg,.jpeg,.png"
+                            >
+
+                            <p class="input-help">
+                                Supported: PDF, JPG, PNG · Maximum 3 pages
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT UPLOAD -->
+
+                    <div class="upload-column">
+
+                        <div class="upload-zone">
+
+                            <div class="upload-icon">
+                                ↑
+                            </div>
+
+                            <h3>
+                                Upload your document
+                            </h3>
+
+                            <p>
+                                Drag &amp; drop your document here
+                            </p>
+
+                            <span class="upload-or">
+                                or <strong>choose a file</strong>
+                            </span>
+
+                        </div>
+
+
+                        <div class="process-actions">
+
+                            <button
+                                id="process-button"
+                                class="primary-button"
+                            >
+                                ⚙ &nbsp; Process Document
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div id="message"></div>
+
+            </section>
+
+
+            <!-- =========================
+                 PROCESSED DOCUMENTS
+                 ========================= -->
+            <section
+                id="result-section"
+                class="card result-card"
+                style="display: none;"
+            >
+                <div class="documents-header">
+
+                    <div class="card-title">
+                        <h2>Document Result</h2>
+                        <p id="result-summary">
+                            Processed document details.
+                        </p>
+                    </div>
+
+                    <div class="result-header-actions">
+
+                        <span id="result-status" class="result-status">
+                            PASS
+                        </span>
+
+                        <button
+                            id="hide-result-button"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Hide Result
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div id="result-content"></div>
+
+                <div class="result-card raw-json-card">
+                <div class="result-card-header">
+                    <div>
+                        <h3>Raw JSON</h3>
+                        <p>Complete API response</p>
+                    </div>
+
+                    <button
+                        id="copy-json-button"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Copy JSON
+                    </button>
+                </div>
+
+                <pre id="raw-json"></pre>
+            </section>
+
+            <section class="card documents-card">
+                
+                <div class="documents-header">
+
+                    <div class="card-title">
+
+                        <h2>
+                            Processed Documents
+                        </h2>
+
+                        <p>
+                            Previously processed documents stored in the system.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="refresh-button"
+                        class="secondary-button"
+                    >
+                        ↻ &nbsp; Refresh
+                    </button>
+
+                </div>
+
+
+                <div id="documents-list">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ▤
+                        </div>
+
+                        <h3>
+                            No documents yet
+                        </h3>
+
+                        <p>
+                            Process a document to see it appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

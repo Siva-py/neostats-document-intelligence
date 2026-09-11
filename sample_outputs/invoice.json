@@ -1,0 +1,370 @@
+{
+  "id": 6,
+  "document_name": "batch1-1109.jpg",
+  "document_type": "invoice",
+  "status": "PASS",
+  "created_at": "2026-09-11T10:33:06.549028+00:00",
+  "result": {
+    "document_name": "batch1-1109.jpg",
+    "document_type": "invoice",
+    "status": "PASS",
+    "file_validation": {
+      "file_type": "image/jpeg",
+      "is_supported": true,
+      "is_readable": true,
+      "page_count": 1,
+      "status": "PASS"
+    },
+    "extraction": {
+      "document_type": "invoice",
+      "as_at_date": "07/03/2013",
+      "unit_of_measurement": "$",
+      "comparative_periods": [],
+      "financial_statement": {
+        "sections": [
+          {
+            "section_name": "ITEMS",
+            "line_items": [
+              {
+                "line_item": "B0028NAO6C Shoeless Joe",
+                "schedule": null,
+                "values": {
+                  "No.": "1.",
+                  "Qty": "5,00",
+                  "UM": "each",
+                  "Net price": "3,49",
+                  "Net worth": "17,45",
+                  "VAT [%]": "10%",
+                  "Gross worth": "19,20"
+                },
+                "evidence": {
+                  "source_text": "1. B0028NAO6C Shoeless Joe 5,00 each 3,49 17,45 10% 19,20",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "The Fifty Greatest Conspiracies of All Time History s Biggest Myster",
+                "schedule": null,
+                "values": {
+                  "No.": "2.",
+                  "Qty": "3,00",
+                  "UM": "each",
+                  "Net price": "4,49",
+                  "Net worth": "13,47",
+                  "VAT [%]": "10%",
+                  "Gross worth": "14,82"
+                },
+                "evidence": {
+                  "source_text": "2. The Fifty Greatest Conspiracies of All Time History s Biggest Myster 3,00 each 4,49 13,47 10% 14,82",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Story of a Soul: The Autobiography of St. Therese of Lisieux",
+                "schedule": null,
+                "values": {
+                  "No.": "3.",
+                  "Qty": "5,00",
+                  "UM": "each",
+                  "Net price": "9,35",
+                  "Net worth": "46,75",
+                  "VAT [%]": "10%",
+                  "Gross worth": "51,42"
+                },
+                "evidence": {
+                  "source_text": "3. Story of a Soul: The Autobiography of St. Therese of Lisieux 5,00 each 9,35 46,75 10% 51,42",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "The Complete Idiots Guide to Trouble-Free Home Re",
+                "schedule": null,
+                "values": {
+                  "No.": "4.",
+                  "Qty": "4,00",
+                  "UM": "each",
+                  "Net price": "4,49",
+                  "Net worth": "17,96",
+                  "VAT [%]": "10%",
+                  "Gross worth": "19,76"
+                },
+                "evidence": {
+                  "source_text": "4. The Complete Idiots Guide to Trouble-Free Home Re 4,00 each 4,49 17,96 10% 19,76",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Rebecca to the Rescue (American Girl (Quality))",
+                "schedule": null,
+                "values": {
+                  "No.": "5.",
+                  "Qty": "2,00",
+                  "UM": "each",
+                  "Net price": "4,89",
+                  "Net worth": "9,78",
+                  "VAT [%]": "10%",
+                  "Gross worth": "10,76"
+                },
+                "evidence": {
+                  "source_text": "5. Rebecca to the Rescue (American Girl (Quality)) 2,00 each 4,89 9,78 10% 10,76",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Tales from the Buffalo Bills",
+                "schedule": null,
+                "values": {
+                  "No.": "6.",
+                  "Qty": "1,00",
+                  "UM": "each",
+                  "Net price": "5,50",
+                  "Net worth": "5,50",
+                  "VAT [%]": "10%",
+                  "Gross worth": "6,05"
+                },
+                "evidence": {
+                  "source_text": "6. Tales from the Buffalo Bills 1,00 each 5,50 5,50 10% 6,05",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Vietnam, The Decisive Battles",
+                "schedule": null,
+                "values": {
+                  "No.": "7.",
+                  "Qty": "2,00",
+                  "UM": "each",
+                  "Net price": "7,68",
+                  "Net worth": "15,36",
+                  "VAT [%]": "10%",
+                  "Gross worth": "16,90"
+                },
+                "evidence": {
+                  "source_text": "7. Vietnam, The Decisive Battles 2,00 each 7,68 15,36 10% 16,90",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              }
+            ]
+          },
+          {
+            "section_name": "SUMMARY",
+            "line_items": [
+              {
+                "line_item": "10%",
+                "schedule": null,
+                "values": {
+                  "VAT [%]": "10%",
+                  "Net worth": "126,27",
+                  "VAT": "12,63",
+                  "Gross worth": "138,90"
+                },
+                "evidence": {
+                  "source_text": "10% 126,27 12,63 138,90",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Total",
+                "schedule": null,
+                "values": {
+                  "Net worth": "$ 126,27",
+                  "VAT": "$ 12,63",
+                  "Gross worth": "$ 138,90"
+                },
+                "evidence": {
+                  "source_text": "Total $ 126,27 $ 12,63 $ 138,90",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "notes": [
+        {
+          "invoice_no": "94404257",
+          "date_of_issue": "07/03/2013",
+          "seller": {
+            "name": "Cruz PLC",
+            "address": "USNV Harris FPO AA 34966",
+            "tax_id": "964-99-8203",
+            "iban": "GB31XOVK34958853133204"
+          },
+          "client": {
+            "name": "Sandoval-Phillips",
+            "address": "23699 James Villages Suite 818 West Tamara, MS 58825",
+            "tax_id": "976-94-5245"
+          }
+        }
+      ],
+      "signatures_and_attestation": {},
+      "document_footer": {}
+    },
+    "financial_validation": {
+      "checks": [
+        {
+          "check": "Line item 1: Quantity × Unit Price = Line Total",
+          "formula": "quantity × unit_price = line_total",
+          "inputs": {
+            "quantity": "5,00",
+            "unit_price": "3,49",
+            "discount_percent": null,
+            "line_total": "17,45"
+          },
+          "calculated": 17.450000000000003,
+          "reported": 17.45,
+          "variance": 3.552713678800501e-15,
+          "status": "PASS"
+        },
+        {
+          "check": "Line item 2: Quantity × Unit Price = Line Total",
+          "formula": "quantity × unit_price = line_total",
+          "inputs": {
+            "quantity": "3,00",
+            "unit_price": "4,49",
+            "discount_percent": null,
+            "line_total": "13,47"
+          },
+          "calculated": 13.47,
+          "reported": 13.47,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Line item 3: Quantity × Unit Price = Line Total",
+          "formula": "quantity × unit_price = line_total",
+          "inputs": {
+            "quantity": "5,00",
+            "unit_price": "9,35",
+            "discount_percent": null,
+            "line_total": "46,75"
+          },
+          "calculated": 46.75,
+          "reported": 46.75,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Line item 4: Quantity × Unit Price = Line Total",
+          "formula": "quantity × unit_price = line_total",
+          "inputs": {
+            "quantity": "4,00",
+            "unit_price": "4,49",
+            "discount_percent": null,
+            "line_total": "17,96"
+          },
+          "calculated": 17.96,
+          "reported": 17.96,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Line item 5: Quantity × Unit Price = Line Total",
+          "formula": "quantity × unit_price = line_total",
+          "inputs": {
+            "quantity": "2,00",
+            "unit_price": "4,89",
+            "discount_percent": null,
+            "line_total": "9,78"
+          },
+          "calculated": 9.78,
+          "reported": 9.78,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Line item 6: Quantity × Unit Price = Line Total",
+          "formula": "quantity × unit_price = line_total",
+          "inputs": {
+            "quantity": "1,00",
+            "unit_price": "5,50",
+            "discount_percent": null,
+            "line_total": "5,50"
+          },
+          "calculated": 5.5,
+          "reported": 5.5,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Line item 7: Quantity × Unit Price = Line Total",
+          "formula": "quantity × unit_price = line_total",
+          "inputs": {
+            "quantity": "2,00",
+            "unit_price": "7,68",
+            "discount_percent": null,
+            "line_total": "15,36"
+          },
+          "calculated": 15.36,
+          "reported": 15.36,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Sum of line totals = Subtotal",
+          "formula": "sum(line_totals) = subtotal",
+          "inputs": {
+            "line_totals": [
+              "17,45",
+              "13,47",
+              "46,75",
+              "17,96",
+              "9,78",
+              "5,50",
+              "15,36"
+            ],
+            "reported_total": "$ 126,27",
+            "subtotal": "$ 126,27",
+            "total": null
+          },
+          "calculated": 126.27,
+          "reported": 126.27,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Taxable Amount + Tax + Round Off = Total",
+          "formula": "taxable_amount + tax + round_off = total",
+          "inputs": {
+            "taxable_amount": "$ 126,27",
+            "tax": null,
+            "round_off": null,
+            "total": null
+          },
+          "calculated": null,
+          "reported": null,
+          "variance": null,
+          "status": "NOT_APPLICABLE"
+        },
+        {
+          "check": "Cash Paid - Total = Change",
+          "formula": "cash_paid - total = change",
+          "inputs": {
+            "cash_paid": null,
+            "total": null,
+            "change": null
+          },
+          "calculated": null,
+          "reported": null,
+          "variance": null,
+          "status": "NOT_APPLICABLE"
+        }
+      ],
+      "overall_status": "PASS"
+    },
+    "metadata": {
+      "ocr_engine": "ocr_space_engine_3",
+      "ocr_page_count": 1,
+      "ocr_processing_time_ms": "3314"
+    }
+  }
+}

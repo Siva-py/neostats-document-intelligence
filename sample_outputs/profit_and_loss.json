@@ -1,0 +1,615 @@
+{
+  "id": 23,
+  "document_name": "Consolidated Profit & Loss 2026.pdf",
+  "document_type": "profit_and_loss",
+  "status": "PASS",
+  "created_at": "2026-09-11T12:52:45.830561+00:00",
+  "result": {
+    "document_name": "Consolidated Profit & Loss 2026.pdf",
+    "document_type": "profit_and_loss",
+    "status": "PASS",
+    "file_validation": {
+      "file_type": "application/pdf",
+      "is_supported": true,
+      "is_readable": true,
+      "page_count": 1,
+      "status": "PASS"
+    },
+    "extraction": {
+      "document_type": "profit_and_loss",
+      "as_at_date": "March 31, 2026",
+      "unit_of_measurement": "₹ in crore",
+      "comparative_periods": [
+        "March 31, 2026",
+        "March 31, 2025"
+      ],
+      "financial_statement": {
+        "sections": [
+          {
+            "section_name": "I INCOME",
+            "line_items": [
+              {
+                "line_item": "Interest earned",
+                "schedule": "13",
+                "values": {
+                  "March 31, 2026": "348,615.15",
+                  "March 31, 2025": "336,367.43"
+                },
+                "evidence": {
+                  "source_text": "Interest earned 13 348,615.15 336,367.43",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Other income",
+                "schedule": "14",
+                "values": {
+                  "March 31, 2026": "146,847.66",
+                  "March 31, 2025": "134,548.50"
+                },
+                "evidence": {
+                  "source_text": "Other income 14 146,847.66 134,548.50",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Total",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "495,462.81",
+                  "March 31, 2025": "470,915.93"
+                },
+                "evidence": {
+                  "source_text": "Total 495,462.81 470,915.93",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              }
+            ]
+          },
+          {
+            "section_name": "II EXPENDITURE",
+            "line_items": [
+              {
+                "line_item": "Interest expended",
+                "schedule": "15",
+                "values": {
+                  "March 31, 2026": "185,491.23",
+                  "March 31, 2025": "183,894.20"
+                },
+                "evidence": {
+                  "source_text": "Interest expended 15 185,491.23 183,894.20",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Operating expenses",
+                "schedule": "16",
+                "values": {
+                  "March 31, 2026": "181,173.91",
+                  "March 31, 2025": "176,605.07"
+                },
+                "evidence": {
+                  "source_text": "Operating expenses 16 181,173.91 176,605.07",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Provisions and contingencies",
+                "schedule": "18 (9)",
+                "values": {
+                  "March 31, 2026": "49,578.21",
+                  "March 31, 2025": "36,976.49"
+                },
+                "evidence": {
+                  "source_text": "Provisions and contingencies 18 (9) 49,578.21 36,976.49",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Total",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "416,243.35",
+                  "March 31, 2025": "397,475.76"
+                },
+                "evidence": {
+                  "source_text": "Total 416,243.35 397,475.76",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              }
+            ]
+          },
+          {
+            "section_name": "III PROFIT",
+            "line_items": [
+              {
+                "line_item": "Consolidated Net Profit for the year before Minority Interest",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "79,219.46",
+                  "March 31, 2025": "73,440.17"
+                },
+                "evidence": {
+                  "source_text": "Consolidated Net Profit for the year before Minority Interest 79,219.46 73,440.17",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Less : Minority Interest",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "3,193.49",
+                  "March 31, 2025": "2,647.92"
+                },
+                "evidence": {
+                  "source_text": "Less : Minority Interest 3,193.49 2,647.92",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Consolidated Net Profit for the year attributable to the group",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "76,025.97",
+                  "March 31, 2025": "70,792.25"
+                },
+                "evidence": {
+                  "source_text": "Consolidated Net Profit for the year attributable to the group 76,025.97 70,792.25",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Brought forward consolidated profit attributable to the group",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "178,692.55",
+                  "March 31, 2025": "150,045.57"
+                },
+                "evidence": {
+                  "source_text": "Brought forward consolidated profit attributable to the group 178,692.55 150,045.57",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Total",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "254,718.52",
+                  "March 31, 2025": "220,837.82"
+                },
+                "evidence": {
+                  "source_text": "Total 254,718.52 220,837.82",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              }
+            ]
+          },
+          {
+            "section_name": "IV APPROPRIATIONS",
+            "line_items": [
+              {
+                "line_item": "Transfer to Statutory Reserve",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "19,159.57",
+                  "March 31, 2025": "17,260.30"
+                },
+                "evidence": {
+                  "source_text": "Transfer to Statutory Reserve 19,159.57 17,260.30",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Interim Dividend paid",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "3,836.57",
+                  "March 31, 2025": "-"
+                },
+                "evidence": {
+                  "source_text": "Interim Dividend paid 3,836.57 -",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Transfer to General Reserve",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "7,467.13",
+                  "March 31, 2025": "6,734.74"
+                },
+                "evidence": {
+                  "source_text": "Transfer to General Reserve 7,467.13 6,734.74",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Transfer to Special Reserve",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "3,000.00",
+                  "March 31, 2025": "3,200.00"
+                },
+                "evidence": {
+                  "source_text": "Transfer to Special Reserve 3,000.00 3,200.00",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Transfer to Capital Reserve",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "8,320.40",
+                  "March 31, 2025": "507.00"
+                },
+                "evidence": {
+                  "source_text": "Transfer to Capital Reserve 8,320.40 507.00",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Dividend pertaining to previous year paid during the year",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "16,869.41",
+                  "March 31, 2025": "14,826.19"
+                },
+                "evidence": {
+                  "source_text": "Dividend pertaining to previous year paid during the year 16,869.41 14,826.19",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Transfer to / (from) Minority Interest",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "476.12",
+                  "March 31, 2025": "(382.96)"
+                },
+                "evidence": {
+                  "source_text": "Transfer to / (from) Minority Interest 476.12 (382.96)",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Transfer to Other Reserves",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "1.85",
+                  "March 31, 2025": "-"
+                },
+                "evidence": {
+                  "source_text": "Transfer to Other Reserves 1.85 -",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Balance carried over to consolidated balance sheet",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "195,587.47",
+                  "March 31, 2025": "178,692.55"
+                },
+                "evidence": {
+                  "source_text": "Balance carried over to consolidated balance sheet 195,587.47 178,692.55",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Total",
+                "schedule": null,
+                "values": {
+                  "March 31, 2026": "254,718.52",
+                  "March 31, 2025": "220,837.82"
+                },
+                "evidence": {
+                  "source_text": "Total 254,718.52 220,837.82",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              }
+            ]
+          },
+          {
+            "section_name": "V EARNINGS PER EQUITY SHARE (Face value ₹ 1/- per share)",
+            "line_items": [
+              {
+                "line_item": "Basic",
+                "schedule": "18 (18)",
+                "values": {
+                  "March 31, 2026": "49.50",
+                  "March 31, 2025": "46.41"
+                },
+                "evidence": {
+                  "source_text": "Basic 18 (18) ₹ 49.50 ₹ 46.41",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              },
+              {
+                "line_item": "Diluted",
+                "schedule": "18 (18)",
+                "values": {
+                  "March 31, 2026": "49.28",
+                  "March 31, 2025": "46.20"
+                },
+                "evidence": {
+                  "source_text": "Diluted 18 (18) ₹ 49.28 ₹ 46.20",
+                  "page_number": 1
+                },
+                "confidence": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "notes": [
+        {
+          "note_text": "Significant accounting policies and notes to the Consolidated Financial Statements",
+          "schedule": "17 & 18"
+        },
+        {
+          "note_text": "The schedules referred to above form an integral part of the Consolidated Profit and Loss Account."
+        }
+      ],
+      "signatures_and_attestation": {
+        "auditors_reports": [
+          {
+            "firm_name": "Batliboi & Purohit",
+            "firm_registration_no": "101048W",
+            "signatory_name": "Janak Mehta",
+            "designation": "Partner",
+            "membership_no": "116976"
+          },
+          {
+            "firm_name": "B S R & Co. LLP",
+            "firm_registration_no": "101248W/W-100022",
+            "signatory_name": "Sudhir Soni",
+            "designation": "Partner",
+            "membership_no": "041870"
+          }
+        ],
+        "board_of_directors": [
+          {
+            "name": "Keki Mistry",
+            "designation": "Interim Part-Time Chairman & Non-Executive (Non-Independent) Director"
+          },
+          {
+            "name": "M. D. Ranganath",
+            "designation": "Independent Director"
+          },
+          {
+            "name": "Lily Vadera",
+            "designation": "Independent Director"
+          },
+          {
+            "name": "Harsh Kumar Bhanwala",
+            "designation": "Independent Director"
+          },
+          {
+            "name": "Sashidhar Jagdishan",
+            "designation": "Managing Director & Chief Executive Officer"
+          },
+          {
+            "name": "Bhavesh Zaveri",
+            "designation": "Executive Director"
+          },
+          {
+            "name": "Srinivasan Vaidyanathan",
+            "designation": "Chief Financial Officer"
+          },
+          {
+            "name": "Sandeep Parekh",
+            "designation": "Independent Director"
+          },
+          {
+            "name": "Sunita Maheshwari",
+            "designation": "Independent Director"
+          },
+          {
+            "name": "Renu Karnad",
+            "designation": "Non-Executive (Non-Independent Director)"
+          },
+          {
+            "name": "Santhosh Keshavan",
+            "designation": "Independent Director"
+          },
+          {
+            "name": "Kaizad Bharucha",
+            "designation": "Deputy Managing Director"
+          },
+          {
+            "name": "V. Srinivasa Rangan",
+            "designation": "Executive Director"
+          },
+          {
+            "name": "Ajay Agarwal",
+            "designation": "Company Secretary"
+          }
+        ],
+        "location": "Mumbai",
+        "date": "April 18, 2026"
+      },
+      "document_footer": {
+        "page_number": "477"
+      }
+    },
+    "financial_validation": {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "Total Income Reconciliation - March 31, 2026",
+          "formula": "Interest Earned + Other Income = Total Income",
+          "inputs": {
+            "period": "March 31, 2026",
+            "interest_earned": "348,615.15",
+            "other_income": "146,847.66",
+            "total_income": "495,462.81"
+          },
+          "calculated": 495462.81000000006,
+          "reported": 495462.81,
+          "variance": 5.820766091346741e-11,
+          "status": "PASS"
+        },
+        {
+          "check": "Total Expenditure Reconciliation - March 31, 2026",
+          "formula": "Interest Expended + Operating Expenses + Provisions and Contingencies = Total Expenditure",
+          "inputs": {
+            "period": "March 31, 2026",
+            "interest_expended": "185,491.23",
+            "operating_expenses": "181,173.91",
+            "provisions_and_contingencies": "49,578.21",
+            "total_expenditure": "416,243.35"
+          },
+          "calculated": 416243.35000000003,
+          "reported": 416243.35,
+          "variance": 5.820766091346741e-11,
+          "status": "PASS"
+        },
+        {
+          "check": "Net Profit Reconciliation - March 31, 2026",
+          "formula": "Total Income - Total Expenditure = Net Profit",
+          "inputs": {
+            "period": "March 31, 2026",
+            "total_income": "495,462.81",
+            "total_expenditure": "416,243.35",
+            "net_profit": "79,219.46"
+          },
+          "calculated": 79219.46000000002,
+          "reported": 79219.46,
+          "variance": 1.4551915228366852e-11,
+          "status": "PASS"
+        },
+        {
+          "check": "Consolidated Profit Reconciliation - March 31, 2026",
+          "formula": "Net Profit - Minority Interest = Consolidated Profit Attributable to Group",
+          "inputs": {
+            "period": "March 31, 2026",
+            "net_profit": "79,219.46",
+            "minority_interest": "3,193.49",
+            "share_in_profits_of_associates": null,
+            "consolidated_profit_attributable_to_group": "76,025.97"
+          },
+          "calculated": 76025.97,
+          "reported": 76025.97,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Total Available for Appropriation Reconciliation - March 31, 2026",
+          "formula": "Consolidated Profit Attributable to Group + Applicable Amalgamation Adjustment + Brought Forward Profit = Total Available for Appropriation",
+          "inputs": {
+            "period": "March 31, 2026",
+            "consolidated_profit_attributable_to_group": "76,025.97",
+            "amalgamation_adjustment": null,
+            "brought_forward_profit": "178,692.55",
+            "total_available_for_appropriation": "254,718.52"
+          },
+          "calculated": 254718.52,
+          "reported": 254718.52,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Total Income Reconciliation - March 31, 2025",
+          "formula": "Interest Earned + Other Income = Total Income",
+          "inputs": {
+            "period": "March 31, 2025",
+            "interest_earned": "336,367.43",
+            "other_income": "134,548.50",
+            "total_income": "470,915.93"
+          },
+          "calculated": 470915.93,
+          "reported": 470915.93,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Total Expenditure Reconciliation - March 31, 2025",
+          "formula": "Interest Expended + Operating Expenses + Provisions and Contingencies = Total Expenditure",
+          "inputs": {
+            "period": "March 31, 2025",
+            "interest_expended": "183,894.20",
+            "operating_expenses": "176,605.07",
+            "provisions_and_contingencies": "36,976.49",
+            "total_expenditure": "397,475.76"
+          },
+          "calculated": 397475.76,
+          "reported": 397475.76,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Net Profit Reconciliation - March 31, 2025",
+          "formula": "Total Income - Total Expenditure = Net Profit",
+          "inputs": {
+            "period": "March 31, 2025",
+            "total_income": "470,915.93",
+            "total_expenditure": "397,475.76",
+            "net_profit": "73,440.17"
+          },
+          "calculated": 73440.16999999998,
+          "reported": 73440.17,
+          "variance": -1.4551915228366852e-11,
+          "status": "PASS"
+        },
+        {
+          "check": "Consolidated Profit Reconciliation - March 31, 2025",
+          "formula": "Net Profit - Minority Interest = Consolidated Profit Attributable to Group",
+          "inputs": {
+            "period": "March 31, 2025",
+            "net_profit": "73,440.17",
+            "minority_interest": "2,647.92",
+            "share_in_profits_of_associates": null,
+            "consolidated_profit_attributable_to_group": "70,792.25"
+          },
+          "calculated": 70792.25,
+          "reported": 70792.25,
+          "variance": 0.0,
+          "status": "PASS"
+        },
+        {
+          "check": "Total Available for Appropriation Reconciliation - March 31, 2025",
+          "formula": "Consolidated Profit Attributable to Group + Applicable Amalgamation Adjustment + Brought Forward Profit = Total Available for Appropriation",
+          "inputs": {
+            "period": "March 31, 2025",
+            "consolidated_profit_attributable_to_group": "70,792.25",
+            "amalgamation_adjustment": null,
+            "brought_forward_profit": "150,045.57",
+            "total_available_for_appropriation": "220,837.82"
+          },
+          "calculated": 220837.82,
+          "reported": 220837.82,
+          "variance": 0.0,
+          "status": "PASS"
+        }
+      ]
+    },
+    "metadata": {
+      "ocr_engine": "ocr_space_engine_3",
+      "ocr_page_count": 1,
+      "ocr_processing_time_ms": "5168"
+    }
+  }
+}
