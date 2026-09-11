@@ -15,10 +15,10 @@ exposes a web dashboard plus REST APIs.
 
 Supported document types:
 
--   Invoice
--   Balance Sheet
--   Profit & Loss
--   Cash Flow Statement
+- Invoice
+- Balance Sheet
+- Profit & Loss
+- Cash Flow Statement
 
 Automated document-type classification is intentionally not implemented;
 the document type is selected in the frontend and supplied as request
@@ -26,7 +26,7 @@ metadata.
 
 ## Architecture
 
-``` text
+```text
 Frontend Dashboard
        |
        v
@@ -60,9 +60,12 @@ See `docs/architecture.png` for the visual architecture diagram.
 
 ## Technology Stack
 
-  -----------------------------------------------------------------------
+---
+
   Component               Technology              Reason
-  ----------------------- ----------------------- -----------------------
+
+---
+
   Backend                 Python + FastAPI        Lightweight REST API
                                                   with automatic
                                                   Swagger/OpenAPI
@@ -94,19 +97,19 @@ See `docs/architecture.png` for the visual architecture diagram.
 
   Image processing        Pillow                  Image validation
 
-  Testing                 Pytest                  Automated validation
+Testing                 Pytest                  Automated validation
                                                   and API tests
-  -----------------------------------------------------------------------
+---------------------------------------------------------------
 
 ## Input Validation
 
 Supported formats:
 
--   PDF
--   JPG / JPEG
--   PNG
--   Native and scanned/image-based documents
--   Maximum 3 pages
+- PDF
+- JPG / JPEG
+- PNG
+- Native and scanned/image-based documents
+- Maximum 3 pages
 
 Validation occurs before OCR or AI extraction and checks file type,
 emptiness, readability, corruption, page count, and basic integrity.
@@ -130,7 +133,7 @@ intentionally invent unsupported values.
 
 Extracted line items can contain source text and page number:
 
-``` json
+```json
 {
   "line_item": "Total Assets",
   "values": {
@@ -153,43 +156,43 @@ source document.
 
 ### Invoice
 
--   Quantity × Unit Price ≈ Line Total
--   Line totals reconcile with reported subtotal/total where applicable
--   Taxable Amount + Tax + applicable rounding ≈ Total
--   Cash Paid − Total ≈ Change
--   GST/tax-included totals are handled according to available source
-    fields
+- Quantity × Unit Price ≈ Line Total
+- Line totals reconcile with reported subtotal/total where applicable
+- Taxable Amount + Tax + applicable rounding ≈ Total
+- Cash Paid − Total ≈ Change
+- GST/tax-included totals are handled according to available source
+  fields
 
 ### Balance Sheet
 
 For each period:
 
--   Capital & Liabilities ≈ Assets
--   Asset component totals are checked where sufficient
--   Capital/liability component totals are checked where sufficient
+- Capital & Liabilities ≈ Assets
+- Asset component totals are checked where sufficient
+- Capital/liability component totals are checked where sufficient
 
 ### Profit & Loss
 
 For each comparative period:
 
--   Interest Earned + Other Income ≈ Total Income
--   Interest Expended + Operating Expenses + Provisions & Contingencies
-    ≈ Total Expenditure
--   Total Income − Total Expenditure ≈ Consolidated Net Profit before
-    Minority Interest
--   Profit before Minority Interest − Minority Interest ≈ Consolidated
-    Net Profit attributable to Group
--   Current Profit + Brought Forward Profit ≈ Total Available for
-    Appropriation where applicable
+- Interest Earned + Other Income ≈ Total Income
+- Interest Expended + Operating Expenses + Provisions & Contingencies
+  ≈ Total Expenditure
+- Total Income − Total Expenditure ≈ Consolidated Net Profit before
+  Minority Interest
+- Profit before Minority Interest − Minority Interest ≈ Consolidated
+  Net Profit attributable to Group
+- Current Profit + Brought Forward Profit ≈ Total Available for
+  Appropriation where applicable
 
 ### Cash Flow Statement
 
 For each comparative period:
 
--   Operating + Investing + Financing + FX/Translation Adjustment ≈ Net
-    Increase in Cash
--   Opening Cash + Net Increase + applicable adjustments ≈ Closing Cash
--   Parentheses/bracketed values are interpreted as negative numbers
+- Operating + Investing + Financing + FX/Translation Adjustment ≈ Net
+  Increase in Cash
+- Opening Cash + Net Increase + applicable adjustments ≈ Closing Cash
+- Parentheses/bracketed values are interpreted as negative numbers
 
 If a required validation input is unavailable, the result is
 `NOT_APPLICABLE` rather than an assumed value.
@@ -199,10 +202,10 @@ value, reported value, variance, and status.
 
 ## Processing Status
 
--   `PASS` --- successful processing with required applicable
-    validations passing.
--   `FAILED` --- invalid, unsupported, corrupted, unreadable, or
-    otherwise unprocessable document.
+- `PASS` --- successful processing with required applicable
+  validations passing.
+- `FAILED` --- invalid, unsupported, corrupted, unreadable, or
+  otherwise unprocessable document.
 
 Individual validation checks may be `PASS`, `FAIL`, or `NOT_APPLICABLE`.
 
@@ -210,21 +213,21 @@ Individual validation checks may be `PASS`, `FAIL`, or `NOT_APPLICABLE`.
 
 ### Process document
 
-``` http
+```http
 POST /api/v1/documents/process
 Content-Type: multipart/form-data
 ```
 
 Form fields:
 
-``` text
+```text
 file=<PDF/JPG/PNG>
 document_type=invoice
 ```
 
 Allowed document types:
 
-``` text
+```text
 invoice
 balance_sheet
 profit_and_loss
@@ -233,31 +236,31 @@ cash_flow_statement
 
 Example:
 
-``` bash
+```bash
 curl -X POST "<BACKEND_URL>/api/v1/documents/process"   -F "file=@sample_invoice.pdf"   -F "document_type=invoice"
 ```
 
 ### List documents
 
-``` http
+```http
 GET /api/v1/documents
 ```
 
 ### Get latest result
 
-``` http
+```http
 GET /api/v1/documents/{document_name}
 ```
 
 ### Health
 
-``` http
+```http
 GET /api/v1/health
 ```
 
 ### Swagger/OpenAPI
 
-``` text
+```text
 <BACKEND_URL>/docs
 ```
 
@@ -265,13 +268,13 @@ GET /api/v1/health
 
 Successful processing responses contain:
 
--   `document_name`
--   `document_type`
--   `processing_status`
--   `file_validation`
--   `extracted_data`
--   `validation`
--   `processing_metadata`
+- `document_name`
+- `document_type`
+- `processing_status`
+- `file_validation`
+- `extracted_data`
+- `validation`
+- `processing_metadata`
 
 The structure remains consistent while extracted fields vary by document
 type.
@@ -280,11 +283,11 @@ type.
 
 SQLite stores:
 
--   Document name
--   Document type
--   Processing status
--   Complete result JSON
--   Processing timestamp
+- Document name
+- Document type
+- Processing status
+- Complete result JSON
+- Processing timestamp
 
 The database is initialized automatically when the FastAPI application
 starts.
@@ -311,7 +314,7 @@ API keys are not logged.
 
 ## Project Structure
 
-``` text
+```text
 project-root/
 ├── backend/
 │   ├── app/
@@ -356,7 +359,7 @@ project-root/
 
 Use `.env.example` as the template:
 
-``` text
+```text
 OCR_SPACE_API_KEY=
 GEMINI_API_KEY_1=
 GEMINI_API_KEY_2=
@@ -368,7 +371,7 @@ Real credentials must never be committed to GitHub.
 
 ## Local Setup
 
-``` cmd
+```cmd
 cd backend
 python -m venv venv
 venv\Scriptsctivate
@@ -379,19 +382,19 @@ Create `backend/.env` and provide the required credentials.
 
 Start the API:
 
-``` cmd
+```cmd
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
 Local API:
 
-``` text
+```text
 http://127.0.0.1:8000
 ```
 
 Swagger:
 
-``` text
+```text
 http://127.0.0.1:8000/docs
 ```
 
@@ -402,21 +405,21 @@ deployment, its `API_BASE_URL` is configured to the deployed backend.
 
 Testing includes:
 
--   Invoice images
--   Balance Sheet PDFs
--   Profit & Loss PDFs
--   Cash Flow PDFs
--   Scanned/image-based documents
--   Unsupported/invalid files
--   Page-limit validation
--   Financial calculation validation
--   Persistent result retrieval
--   API health flow
--   Missing-document 404 flow
+- Invoice images
+- Balance Sheet PDFs
+- Profit & Loss PDFs
+- Cash Flow PDFs
+- Scanned/image-based documents
+- Unsupported/invalid files
+- Page-limit validation
+- Financial calculation validation
+- Persistent result retrieval
+- API health flow
+- Missing-document 404 flow
 
 The API automated tests currently include:
 
-``` text
+```text
 2 passed
 ```
 
@@ -426,7 +429,7 @@ File-validation and financial-validation tests are also included.
 
 Representative real processed outputs are stored in:
 
-``` text
+```text
 sample_outputs/
 ```
 
@@ -435,16 +438,16 @@ Statement processing and include validation calculations.
 
 ## Known Limitations
 
--   OCR and AI accuracy depends on source quality and document layout.
--   External OCR and LLM services are subject to quota, availability,
-    and network latency.
--   SQLite is suitable for this prototype but not ideal for
-    high-concurrency production workloads.
--   Complex layouts or severely degraded scans may require additional
-    preprocessing or specialized document models.
--   AI service outages can temporarily prevent processing.
--   Automated document-type classification is outside the case-study
-    scope.
+- OCR and AI accuracy depends on source quality and document layout.
+- External OCR and LLM services are subject to quota, availability,
+  and network latency.
+- SQLite is suitable for this prototype but not ideal for
+  high-concurrency production workloads.
+- Complex layouts or severely degraded scans may require additional
+  preprocessing or specialized document models.
+- AI service outages can temporarily prevent processing.
+- Automated document-type classification is outside the case-study
+  scope.
 
 ## Production Improvements
 
@@ -458,9 +461,9 @@ CI/CD, and a larger automated regression corpus.
 
 The prototype uses free/free-tier options where applicable:
 
--   OCR.Space
--   Gemini API
--   SQLite
+- OCR.Space
+- Gemini API
+- SQLite
 
 Provider quotas and availability may vary.
 
@@ -479,46 +482,49 @@ solution.
 
 ## Deployment URLs
 
-Fill these after deployment:
+Live deployment links:
 
-``` text
+```text
 GitHub:
-[TO BE ADDED]
+https://github.com/Siva-py/neostats-document-intelligence
 
 Frontend:
-[TO BE ADDED]
+https://neostats-document-intelligence-mxy7.onrender.com/
 
 Backend API:
-[TO BE ADDED]
+https://neostats-document-intelligence-api.onrender.com/
+
+Health:
+https://neostats-document-intelligence-api.onrender.com/api/v1/health
 
 Swagger/OpenAPI:
-[TO BE ADDED]/docs
+https://neostats-document-intelligence-api.onrender.com/docs
 ```
 
 ## Final Submission Checklist
 
--   [x] Four supported document types
--   [x] PDF / JPG / PNG support
--   [x] Maximum 3-page validation
--   [x] Native and scanned/image documents
--   [x] Structured extraction
--   [x] Evidence/page-number support
--   [x] Financial validation
--   [x] PASS / FAIL / NOT_APPLICABLE
--   [x] SQLite persistence
--   [x] REST API
--   [x] Swagger/OpenAPI
--   [x] Dashboard
--   [x] Raw JSON view
--   [x] Automated validation tests
--   [x] Automated financial tests
--   [x] Automated API tests
--   [x] Sample JSON outputs
--   [x] Architecture diagram
--   [x] Solution presentation
--   [x] AI/tool usage declaration
--   [x] Known limitations and production improvements
--   [ ] Public GitHub repository
--   [ ] Live frontend URL
--   [ ] Live backend URL
--   [ ] Live Swagger URL
+- [X] Four supported document types
+- [X] PDF / JPG / PNG support
+- [X] Maximum 3-page validation
+- [X] Native and scanned/image documents
+- [X] Structured extraction
+- [X] Evidence/page-number support
+- [X] Financial validation
+- [X] PASS / FAIL / NOT_APPLICABLE
+- [X] SQLite persistence
+- [X] REST API
+- [X] Swagger/OpenAPI
+- [X] Dashboard
+- [X] Raw JSON view
+- [X] Automated validation tests
+- [X] Automated financial tests
+- [X] Automated API tests
+- [X] Sample JSON outputs
+- [X] Architecture diagram
+- [X] Solution presentation
+- [X] AI/tool usage declaration
+- [X] Known limitations and production improvements
+- [X] Public GitHub repository
+- [X] Live frontend URL
+- [X] Live backend URL
+- [X] Live Swagger URL
