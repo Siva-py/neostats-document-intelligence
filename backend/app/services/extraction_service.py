@@ -112,7 +112,7 @@ class ExtractionService:
 
                 if is_service_unavailable:
                     raise RuntimeError(
-                        "Gemini service is temporarily unavailable."
+                        "Gemini service is temporarily unavailable. Please try again."
                     ) from exc
 
                 if not is_quota_error:

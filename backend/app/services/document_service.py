@@ -135,13 +135,13 @@ class DocumentService:
             logger.info(
                             "Financial validation completed: %s | status=%s",
                             filename,
-                            overall_status,
+                            status,
                         )
             
             result = {
                     "document_name": filename,
                     "document_type": document_type,
-                    "status": overall_status,
+                    "status": status,
                     "file_validation": file_validation,
                     "extraction": extraction_result,
                     "financial_validation": financial_validation,
@@ -168,7 +168,7 @@ class DocumentService:
             logger.info(
                 "Document result persisted: %s | status=%s",
                 filename,
-                overall_status,
+                status,
             )
             return result
 
