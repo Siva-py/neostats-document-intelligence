@@ -1,6 +1,6 @@
 const API_BASE_URL = window.location.hostname === "localhost"
     ? "http://127.0.0.1:8000"
-    : "YOUR_DEPLOYED_BACKEND_URL";
+    : "https://neostats-document-intelligence-api.onrender.com";
 
 const fileInput = document.getElementById("file-input");
 const documentType = document.getElementById("document-type");
