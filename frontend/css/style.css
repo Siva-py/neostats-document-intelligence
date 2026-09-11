@@ -1481,3 +1481,30 @@ input[type="file"]:focus {
     border-radius: 999px;
     font-size: 12px;
 }
+
+.documents-search {
+    margin: 20px 0;
+}
+
+.documents-search input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 18px;
+    border: 1px solid #d9e2df;
+    border-radius: 10px;
+    background: #f8faf9;
+    color: #111827;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.documents-search input::placeholder {
+    color: #7a8581;
+}
+
+.documents-search input:focus {
+    border-color: #8eea00;
+    box-shadow: 0 0 0 3px rgba(142, 234, 0, 0.4);
+}

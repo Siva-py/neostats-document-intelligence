@@ -77,7 +77,7 @@ processNav.addEventListener("click", (event) => {
         processSection.getBoundingClientRect().top
         - mainContent.getBoundingClientRect().top
         + mainContent.scrollTop
-        - 20;
+        - 125;
 
     mainContent.scrollTo({
         top: targetTop,
@@ -205,10 +205,10 @@ async function processDocument() {
             message.textContent =
                 "✓ Document processed successfully.";
 
-            window.scrollTo({
-            top: -1,
-            behavior: "smooth"
-        });
+            mainContent.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
     } catch (error) {
 
@@ -776,94 +776,145 @@ async function loadDocuments() {
             return;
         }
 
+        function renderDocuments(filteredDocuments) {
 
-        documentsList.innerHTML = documents
-            .map(document => {
+            if (!filteredDocuments.length) {
 
-                const statusClass =
-                    document.status === "PASS"
-                        ? "document-status-pass"
-                        : "document-status-fail";
+                documentsList.innerHTML = `
+                    <div class="empty-state">
 
-                return `
-                    <div class="document-row">
-
-                        <div class="document-row-main">
-
-                            <div class="document-row-icon">
-                                ▤
-                            </div>
-
-                            <div>
-
-                                <div class="document-name">
-                                    ${escapeHtml(
-                                        document.document_name
-                                    )}
-                                </div>
-
-                                <div class="document-meta">
-                                    ${escapeHtml(
-                                        document.document_type
-                                    )}
-                                    ·
-                                    ${escapeHtml(
-                                        document.created_at
-                                    )}
-                                </div>
-
-                            </div>
-
+                        <div class="empty-icon">
+                            !
                         </div>
 
+                        <h3>
+                            No matching documents
+                        </h3>
 
-                        <div class="document-row-right">
-
-                            <span class="
-                                document-status
-                                ${statusClass}
-                            ">
-                                ${escapeHtml(
-                                    document.status
-                                )}
-                            </span>
-
-                            <button
-                                class="view-document-button"
-                                data-document-name="${escapeHtml(
-                                    document.document_name
-                                )}"
-                            >
-                                View
-                            </button>
-
-                        </div>
+                        <p>
+                            Try a different search term.
+                        </p>
 
                     </div>
                 `;
 
-            })
-            .join("");
+                return;
+            }
 
+            documentsList.innerHTML = filteredDocuments
+                .map(document => {
 
-        document
-            .querySelectorAll(".view-document-button")
-            .forEach(button => {
+                    const statusClass =
+                        document.status === "PASS"
+                            ? "document-status-pass"
+                            : "document-status-fail";
 
-                button.addEventListener(
-                    "click",
-                    () => {
+                    return `
+                        <div class="document-row">
 
-                        const documentName =
-                            button.dataset.documentName;
+                            <div class="document-row-main">
 
-                        loadDocumentResult(
-                            documentName
+                                <div class="document-row-icon">
+                                    ▤
+                                </div>
+
+                                <div>
+
+                                    <div class="document-name">
+                                        ${escapeHtml(
+                                            document.document_name
+                                        )}
+                                    </div>
+
+                                    <div class="document-meta">
+                                        ${escapeHtml(
+                                            document.document_type
+                                        )}
+                                        ·
+                                        ${escapeHtml(
+                                            document.created_at
+                                        )}
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="document-row-right">
+
+                                <span class="
+                                    document-status
+                                    ${statusClass}
+                                ">
+                                    ${escapeHtml(
+                                        document.status
+                                    )}
+                                </span>
+
+                                <button
+                                    class="view-document-button"
+                                    data-document-name="${escapeHtml(
+                                        document.document_name
+                                    )}"
+                                >
+                                    View
+                                </button>
+
+                            </div>
+
+                        </div>
+                    `;
+
+                })
+                .join("");
+
+            document
+                .querySelectorAll(".view-document-button")
+                .forEach(button => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            const documentName =
+                                button.dataset.documentName;
+
+                            loadDocumentResult(
+                                documentName
+                            );
+                        }
+                    );
+
+                });
+        }
+
+        renderDocuments(documents);
+
+        const searchInput =
+            document.getElementById("document-search");
+
+        if (searchInput) {
+
+            searchInput.addEventListener(
+                "input",
+                () => {
+
+                    const searchTerm =
+                        searchInput.value
+                            .trim()
+                            .toLowerCase();
+
+                    const filteredDocuments =
+                        documents.filter(document =>
+                            document.document_name
+                                .toLowerCase()
+                                .includes(searchTerm)
                         );
-                    }
-                );
 
-            });
+                    renderDocuments(filteredDocuments);
+                }
+            );
+        }
 
     } catch (error) {
 
@@ -886,6 +937,7 @@ async function loadDocuments() {
         `;
     }
 }
+
 async function loadDocumentResult(documentName) {
 
     try {
