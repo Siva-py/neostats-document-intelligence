@@ -128,11 +128,10 @@ class DocumentService:
                 )
             )
             
-            overall_status = financial_validation.get(
-                "status",
-                "FAILED"
+            status = financial_validation.get(
+                "overall_status",
+                financial_validation.get("status", "FAILED"),
             )
-
             logger.info(
                             "Financial validation completed: %s | status=%s",
                             filename,
