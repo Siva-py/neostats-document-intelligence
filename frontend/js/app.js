@@ -563,7 +563,7 @@ function displayResult(result) {
        ========================= */
 
     const validationStatus =
-        validation.status;
+    validation.overall_status || validation.status;
 
 
     html += `

@@ -1,5 +1,5 @@
 from typing import Any
-
+import re
 
 TOLERANCE = 1.0
 
@@ -180,21 +180,37 @@ def validate_invoice(extracted_data):
         "sections", []
     )
 
+    def normalize_key(value):
+        key = str(value).lower()
+        key = re.sub(r"[^a-z0-9]+", "", key)
+
+        # Remove currency suffixes such as _eur, _usd, _inr, etc.
+        key = re.sub(
+            r"(eur|usd|inr|gbp|aed|sar|cad|aud|sgd|jpy|rm)$",
+            "",
+            key,
+        )
+
+        return key
+
+
     def find_value(values, aliases):
         """
         Find a value using flexible field-name aliases.
-        Matching is case-insensitive and ignores spaces/underscores.
+        Matching is case-insensitive, ignores spaces/underscores,
+        and supports currency-suffixed fields such as total_eur.
         """
         if not isinstance(values, dict):
             return None
 
         normalized = {
-            str(key).lower().replace(" ", "").replace("_", ""): value
+            normalize_key(key): value
             for key, value in values.items()
         }
 
         for alias in aliases:
-            key = alias.lower().replace(" ", "").replace("_", "")
+            key = normalize_key(alias)
+
             if key in normalized:
                 return normalized[key]
 
@@ -282,6 +298,13 @@ def validate_invoice(extracted_data):
             "total sales inclusive gst",
             "total sales (inclusive gst)",
         ],
+        "discount": [
+            "discount",
+            "discount amount",
+            "discount_amount",
+            "discount value",
+            "discount_value",
+        ],
         "round_off": [
             "round off",
             "round_off",
@@ -355,6 +378,12 @@ def validate_invoice(extracted_data):
                     "unit rate",
                     "price",
                     "rate",
+                    "rate_per_pcs",
+                    "rate per pcs",
+                    "rate_per_piece",
+                    "rate per piece",
+                    "price_per_pcs",
+                    "price per pcs",
                     "net_price",
                 ],
             )
@@ -365,7 +394,7 @@ def validate_invoice(extracted_data):
                 "line_total",
                 "linetotal",
                 "net worth",
-                "net amount"
+                "net amount",
                 "total",
                 "total_amount",
                 "total amount",
@@ -465,11 +494,16 @@ def validate_invoice(extracted_data):
                     # Exact label matching for summary rows
                     # -------------------------------------------------
 
-                    label_normalized = (
-                        label.lower()
-                        .replace(" ", "")
-                        .replace("_", "")
-                        .replace(".", "")
+                    label_normalized = re.sub(
+                        r"\([^)]*\)",
+                        "",
+                        label.lower(),
+                    )
+
+                    label_normalized = re.sub(
+                        r"[^a-z0-9]+",
+                        "",
+                        label_normalized,
                     )
 
                     for field_name, aliases in summary_aliases.items():
@@ -528,6 +562,7 @@ def validate_invoice(extracted_data):
                     tax_label_keywords = [
                         "tax payable",
                         "tax amount",
+                        "tax",
                         "gst payable",
                         "gst amount",
                         "cgst",
@@ -744,6 +779,7 @@ def validate_invoice(extracted_data):
     tax = summary_values.get("tax")
     total = summary_values.get("total")
 
+    discount = summary_values.get("discount")
     round_off = summary_values.get("round_off")
 
     taxable_number = _to_number(
@@ -758,6 +794,10 @@ def validate_invoice(extracted_data):
         round_off
     )
 
+    discount_number = _to_number(
+    discount
+    )
+
     calculated_total = None
 
     if (
@@ -768,22 +808,24 @@ def validate_invoice(extracted_data):
         calculated_total = (
             taxable_number
             + tax_number
+            + (discount_number or 0)
             + (round_off_number or 0)
         )
 
     results.append(
         _compare(
             check_name=(
-                "Taxable Amount + Tax + "
-                "Round Off = Total"
+                "taxable_amount + tax "
+                 "+ discount + round_off = total"
             ),
             formula=(
                 "taxable_amount + tax "
-                "+ round_off = total"
+                "+ discount + round_off = total"
             ),
             inputs={
                 "taxable_amount": taxable_amount,
                 "tax": tax,
+                "discount": discount,
                 "round_off": round_off,
                 "total": total,
             },
